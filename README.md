@@ -10,7 +10,7 @@ got so old 🗑 that we need to write our expenses in another diary.🖋🖋 It 
 
 *But it is the most safe way of keeping record. But the time has changed laptops and mobiles are takng over. Most of the time we are spending on computers only.*
 
-![](https://github.com/Shreejan-35/EXPENSE-TRACKER/blob/main/res/web.JPG)
+![](https://github.com/Shreejan-35/EXPENSE-TRACKER/blob/main/res/web.jpg)
 
 **SO I HAVE THOUGHT OF MAKING AN PYTHON APPLICATION TO KEEP TRACK OF YOUR IMPORTANT EXPENSES. I SAY IT IS A VERY HANDY TOOL.**
 
