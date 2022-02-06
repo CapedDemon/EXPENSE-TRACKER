@@ -35,7 +35,7 @@ def mainActivity():
         # main menu
         print('"""\nI = INSERT NEW EXPENSE\nR = SHOWS ALL YOUR DATA WITH DETAILS\nU = FOR UPDATING THE VALUES IN YOUR DATABASE\nD = FOR DELETING THE VLAUES IN YOUR DATABASE\nC = CHANGE YOUR SALARY\nQ = QUIT\n"""')
 
-        choice = input()
+        choice = input().upper()
 
         # if the choice is to insert new expense
         if choice == 'I':
@@ -115,7 +115,7 @@ def mainActivity():
             # In the x-axis there are the names or the reasons of your expense
             # In the y-axis there are the values of the expense
             # The title of the graph is 'Expense View'
-            graphChoice = input("Do you want to see the graph(Y/N) - ")
+            graphChoice = input("Do you want to see the graph(Y/N) - ").upper()
             if graphChoice == 'Y':
                 plt.bar(x_axis, y_axis, width=0.3)
                 plt.title("Expense View")
