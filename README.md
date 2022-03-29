@@ -23,17 +23,34 @@ got so old 🗑 that we need to write our expenses in another diary.🖋🖋 It 
 - You can update and delete your expenses
 - You can insert new expenses
 - Uses database
+- currency converter
 
-# 😎GETTING STARTED ✨🎏
-Working with expense tracker is pretty easy, if I don't day also, then also you all will do it.
+# GETTING STARTED 🤨🧐
+Working with expense tracker is pretty easy, if I don't say also, then also you all will do it.
+
+- You can seek the help by pressing **H** 
+- At first, Press **C** to continue or **H** to take help
+- Press **1** to load your database or storage
+- Press **2** to load your salary
+- Press **3** to insert your expenses in the database
+- Press **4** to see your expenses with core details
+- Press **5** to update your expenses
+- Press **6** to delete your expenses
+- Press **7** to change your salary
+- Press **8** to see your expenses in other currency
+- Press **9** to exit or quit
+
+# 😎INSTALLATION ✨🎏
 There are two ways of downloading expense tracker in your computer :-
     - Git clone 
     ```
     git clone https://github.com/Shreejan-35/EXPENSE-TRACKER.git
     ```
     - Download the zip file 
-After this you can run the main.exe file directly.
-Or if you have python installed then first run this command - 
+    - using pip
+
+
+If you have python installed then first run this command - 
 ```
 pip install requirements.txt
 ```
@@ -45,6 +62,22 @@ OR
 ```
 python3 main.py
 ```
+
+- Using pip
+It is on pypi.org
+```
+pip install expense-tracker
+```
+OR
+```
+pip3 install expense-tracker
+```
+
+Then run,
+```
+expense-tracker
+```
+
 That's all.
 Read the instruction carefully on your screen and you will be able to do it.🎉🎉
 
@@ -52,4 +85,4 @@ Read the instruction carefully on your screen and you will be able to do it.🎉
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## LICENSE
-GNU PUBLIC LICENSE
+MIT License
