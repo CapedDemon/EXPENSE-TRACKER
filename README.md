@@ -44,7 +44,7 @@ Working with expense tracker is pretty easy, if I don't say also, then also you 
 There are two ways of downloading expense tracker in your computer :-
     - Git clone 
     ```
-    git clone https://github.com/Shreejan-35/EXPENSE-TRACKER.git
+    git clone https://github.com/CapedDemon/EXPENSE-TRACKER.git
     ```
     - Download the zip file 
     - using pip
