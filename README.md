@@ -1,3 +1,6 @@
+"A big update is underway in the internetify branch"
+stay tuned
+
 #  EXPENSE TRACKER
 <a href="https://github.com/Shreejan-35/Classified"><img src="https://img.shields.io/badge/Language-python-green.svg" alt="Language"></a>
 <a href="https://github.com/Shreejan-35/Classified/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
