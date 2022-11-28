@@ -34,6 +34,9 @@ class ExpenseTracker:
                     TAKE HELP ANYTIME YOU NEED
                  CONTACT - dolaishreejan@gmail.com
 
+                        This Guide is for local 
+                        management of expenses
+
                 1. First, press 1 to load or create your database
                 2. Press 2 to load your salary
                 3. Press 7 to change your salary
@@ -44,6 +47,22 @@ class ExpenseTracker:
                 7. Press 6 to delete your expenses
                 8. Press 8 to see your expenses with other currency
                 9. To see the help guide press 9
+
+
+
+                        For Remote Management - 
+                        
+                1. If you have already have login username and password, login
+                    using it by pressing "L"
+                2. To register press "R"
+                3. To insert data remotely - "I"
+                4. To delete - "D"
+                5. To update - "U"
+                6. To get records - "S"
+                7. To logout - "O"
+
+
+                Press "Q" for quitting the program
         """)
     
     def createDB(self):
