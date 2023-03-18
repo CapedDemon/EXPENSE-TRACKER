@@ -4,13 +4,14 @@ import os
 import matplotlib.pyplot as plt
 from requests import get
 from pprint import PrettyPrinter
+import remotefunc
 
 class ExpenseTracker:
 
     __salary = 0
 
 
-    def __init__(self, *args,):
+    def __init__(self):
         print("""
                             INITIALISED EXPENSE TRACKER
                                 track your expenses
@@ -23,7 +24,8 @@ class ExpenseTracker:
 
 
         """)
-        print('WELCOME TO EXPENSE TRACKER. HERE YOU CAN STORE YOUR EXPENSES AND KEEP A TRACK OF THEM.\n\t\t\t\tPress 9 for help\n')
+        self.remote = remotefunc.RemoteFunc()
+        print('WELCOME TO EXPENSE TRACKER. HERE YOU CAN STORE YOUR EXPENSES AND KEEP A TRACK OF THEM.\n\t\t\t\tPress H for help\n')
 
 
     # function that shows the user
@@ -46,20 +48,20 @@ class ExpenseTracker:
                 6. Press 5 to update your expenses
                 7. Press 6 to delete your expenses
                 8. Press 8 to see your expenses with other currency
-                9. To see the help guide press 9
+                9. To see the help guide press H
 
 
 
                         For Remote Management - 
                         
-                1. If you have already have login username and password, login
+                A. If you have already have login username and password, login
                     using it by pressing "L"
-                2. To register press "R"
-                3. To insert data remotely - "I"
-                4. To delete - "D"
-                5. To update - "U"
-                6. To get records - "S"
-                7. To logout - "O"
+                B. To register press "R"
+                C. To insert data remotely - "I"
+                D. To delete - "D"
+                E. To update - "U"
+                F. To get records - "S"
+                G. To logout - "O"
 
 
                 Press "Q" for quitting the program
@@ -329,6 +331,7 @@ class ExpenseTracker:
     # function to load functions
     def loadFunc(self):
         self.FunctionMaps = {
+            #offline
             "1": self.createDB,
             "2": self.salaryWork,
             "3": self.insertDB,
@@ -337,7 +340,11 @@ class ExpenseTracker:
             "6": self.deleteDB,
             "7": self.changeSalary,
             "8": self.currencyConverter,
-            "9": self.helpGuide
+            "H": self.helpGuide,
+
+            #online
+            "R": self.remote.Register,
+            "L": self.remote.Login
         }
 
     # assign users's command to function
@@ -351,7 +358,7 @@ class ExpenseTracker:
     def takeCommand(self):
         self.command = input("expense-tracker $: ");
 
-        while self.command != "10":
+        while self.command != "Q":
             if (self.command == "Q"):
                 print("Bye\n")
                 break
