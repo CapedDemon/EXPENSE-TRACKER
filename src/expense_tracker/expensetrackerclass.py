@@ -63,20 +63,18 @@ class ExpenseTracker:
                 F. To get records - "S"
                 G. To logout - "O"
 
-
                 Press "Q" for quitting the program
         """)
     
     def createDB(self):
             #creating the database
             createdb = input("Create new database (C) | Work with previous database (P) - ").upper()
+            name = input("Enter the name of your database (Expense.db, mongo.db, etc) - ")# seeking name
             if createdb == 'C':
-                name = input("Enter the name of your database (Expense.db, mongo.db, etc) - ")
                 self.conn = sqlite3.connect(name)
                 self.cur = self.conn.cursor()
 
             elif createdb == 'P':
-                name = input("Enter the name of your database (Expense.db, mongo.db, etc) - ")
                 self.conn = sqlite3.connect(name)
                 self.cur = self.conn.cursor()
             
@@ -344,7 +342,10 @@ class ExpenseTracker:
 
             #online
             "R": self.remote.Register,
-            "L": self.remote.Login
+            "L": self.remote.Login,
+            "O": self.remote.Logout,
+            "I": self.remote.InsertExpenses,
+            "S": self.remote.ShowExpenses
         }
 
     # assign users's command to function

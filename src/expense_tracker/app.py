@@ -16,6 +16,15 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
+
+# Define a Expenses model with the fields 'expense', 'expenditure', and 'date'
+class Expenses(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
+    expense = db.Column(db.String(255), nullable=False)
+    expenditure = db.Column(db.String(255), nullable=False)
+    date = db.Column(db.String(30), nullable=False)
+
 # register route
 @app.route('/register', methods=['POST'])
 def register():
@@ -46,10 +55,46 @@ def login():
     else:
         return jsonify({'message': 'Access Denied'}), 401
 
+# route to create the expenses in the expense table 
+@app.route('/createExpenses', methods=['POST'])
+def createExpenses():
+    expensesData = request.get_json()
+
+    # Check that all required fields are present in the request body
+    if 'expense' not in expensesData or 'expenditure' not in expensesData or 'date' not in expensesData:
+        return jsonify({'error': 'Missing fields'}), 400
+
+    # creating the new field
+    newExpense = Expenses(username=expensesData["username"], expense=expensesData["expense"], expenditure=expensesData["expenditure"], date=expensesData["date"])
+
+    # Add the new expense to the database
+    db.session.add(newExpense)
+    db.session.commit()
+
+    return jsonify({'message': 'Expense created successfully'}), 200
+
+# route to get the expenses
+@app.route('/showExpenses', methods=['POST','GET'])
+def getExpenses():
+    data = request.json
+    # Get all expenses for the user from the expenses table
+    expenses = Expenses.query.filter_by(username=data["username"]).all()
+    
+    # Create a list of dictionaries containing the expense data
+    expenseList = []
+    for expense in expenses:
+        expenseDict = {'expense': expense.expense, 'expenditure': expense.expenditure, 'date': expense.date}
+        expenseList.append(expenseDict)
+    
+    # Return the list of expenses in JSON format
+    return jsonify({'expenses': expenseList}), 200
+
+
 @app.route("/")
 def home():
     return "this is expense tracker"
 
 if __name__ == '__main__':
+    # db.drop_all()
     # db.create_all()
     app.run(debug=True)
