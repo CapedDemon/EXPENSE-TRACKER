@@ -167,11 +167,12 @@ class ExpenseTracker:
         print('\n')
 
         # printing the total salary and total money saved or extra spend
-        print("Total salary = " + (self.salary))
-        if totalExpenditureSum <= int(self.salary):
-            print("Money Saved = " + str(int(self.salary) - totalExpenditureSum))
-        else:
-            print("Extra Money Spend = " + str(totalExpenditureSum - int(self.salary)))
+        if self.salary != 0:
+            print("Total salary = " + (self.salary))
+            if totalExpenditureSum <= int(self.salary):
+                print("Money Saved = " + str(int(self.salary) - totalExpenditureSum))
+            else:
+                print("Extra Money Spend = " + str(totalExpenditureSum - int(self.salary)))
 
         print(20 * '*')
         print('\n')
@@ -233,12 +234,12 @@ class ExpenseTracker:
 
     # deleting the expenses
     def deleteDB(self):
-        print("Deleting means you will delete the whole one record. Suppose you give an identification for deletion as date then the whole row where the date \nalong with expense, expenditure will eb deleted\n")
-        identification1 = input("Enter one identity for deleting the record(expense, expenditure, date): ")
+        print("Deleting means you will delete the whole one record. Suppose you give an identification for deletion as date then the whole row where the date \nalong with expense, expenditure will be deleted\n")
+        identification1 = input("Enter one identity for deleting the record(expense, expenditure, date): ").lower()
         valueid1 = input("Enter the value of the identity: ")
 
         identification2 = input(
-            "Enter another identity for deleting the record(expense, expenditure, date) [This need to be not same as the previous input given]: ")
+            "Enter another identity for deleting the record(expense, expenditure, date) [This need to be not same as the previous input given]: ").lower()
         valueid2 = input("Enter the value of the identity: ")
 
         if identification1 == "expense":

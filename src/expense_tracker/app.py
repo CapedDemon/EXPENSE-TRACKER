@@ -89,6 +89,11 @@ def getExpenses():
     # Return the list of expenses in JSON format
     return jsonify({'expenses': expenseList}), 200
 
+# route to delete the expenses
+@app.route('/delete/Expenses', methods=['POST','GET'])
+def delExpenses(self):
+    pass
+
 
 @app.route("/")
 def home():
