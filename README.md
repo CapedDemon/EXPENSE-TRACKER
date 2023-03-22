@@ -28,6 +28,7 @@ got so old 🗑 that we need to write our expenses in another diary.🖋🖋 It 
 - You can insert new expenses
 - Uses database
 - currency converter
+- Also saves your data online so that you can get access to your expenses from anywhere anytime.
 
 # GETTING STARTED 🤨🧐
 Working with expense tracker is pretty easy, if I don't say also, then also you all will do it.
@@ -43,6 +44,15 @@ Working with expense tracker is pretty easy, if I don't say also, then also you 
 - Press **7** to change your salary
 - Press **8** to see your expenses in other currency
 - Press **9** to exit or quit
+
+**Working Remotely**
+- Press **L** to login with a specific username and password
+- Press **R** to register yourself
+- Press **I** to enter the expenses remotely
+- Press **D** to delete your expenses
+- Press **U** to update a particular expense
+- Press **O** to logout
+- Press **DEL** to delete your whole account and all other records
 
 # 😎INSTALLATION ✨🎏
 There are two ways of downloading expense tracker in your computer :-

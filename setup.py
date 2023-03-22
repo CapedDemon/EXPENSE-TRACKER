@@ -5,15 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="expense-tracker",
-    version="0.0.6",
+    version="10.0",
     author="Shreejan Dolai",
     author_email="dolaishreejan@gmail.com",
     description="Expense Tracker is a very good tool to keep track of your expenseditures and the total money you saved.🤑🤑",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Shreejan-35/EXPENSE-TRACKER",
+    url="https://github.com/CapedDemon/EXPENSE-TRACKER",
     project_urls={
-        "Bug Tracker": "https://github.com/Shreejan-35/EXPENSE-TRACKER/issues",
+        "Bug Tracker": "https://github.com/CapedDemon/EXPENSE-TRACKER/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -28,6 +28,8 @@ setuptools.setup(
     install_requires=[
         'matplotlib',
         'requests',
+        'flask',
+        'bcrypt'
     ],
     entry_points={
         'console_scripts': [

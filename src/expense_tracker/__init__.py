@@ -1,1 +1,1 @@
-from .expensetracker import ExpenseTracker
+import expensetracker
