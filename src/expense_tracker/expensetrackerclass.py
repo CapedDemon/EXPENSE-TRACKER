@@ -62,6 +62,7 @@ class ExpenseTracker:
                 E. To update - "U"
                 F. To get records - "S"
                 G. To logout - "O"
+                H. To delete your account and other expenses - "DEL"
 
                 Press "Q" for quitting the program
         """)
@@ -346,7 +347,10 @@ class ExpenseTracker:
             "L": self.remote.Login,
             "O": self.remote.Logout,
             "I": self.remote.InsertExpenses,
-            "S": self.remote.ShowExpenses
+            "S": self.remote.ShowExpenses,
+            "D": self.remote.deleteExpense,
+            "U": self.remote.updateExpense,
+            "DEL": self.remote.delAccount
         }
 
     # assign users's command to function

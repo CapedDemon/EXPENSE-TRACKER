@@ -90,9 +90,89 @@ def getExpenses():
     return jsonify({'expenses': expenseList}), 200
 
 # route to delete the expenses
-@app.route('/delete/Expenses', methods=['POST','GET'])
-def delExpenses(self):
-    pass
+@app.route('/deleteExpenses', methods=['POST','GET'])
+def delExpenses():
+    data = request.json
+    if data["identification1"] == "expense":
+        if data["identification2"] == "expenditure":
+            result = Expenses.query.filter_by(username=data["username"], expenditure=data["value2"], expense=data["value1"]).delete()
+
+        if data['identification2'] == "date":
+            result = Expenses.query.filter_by(username=data["username"], date=data["value2"], expense=data["value1"]).delete()
+
+    elif data["identification1"] == "expenditure":
+        if data["identification2"] == "expense":
+            result = Expenses.query.filter_by(username=data["username"], expenditure=data["value1"], expense=data["value2"]).delete()
+
+        if data['identification2'] == "date":
+            result = Expenses.query.filter_by(username=data["username"], date=data["value2"], expenditure=data["value1"]).delete()
+
+    if data["identification1"] == "date":
+        if data["identification2"] == "expenditure":
+            result = Expenses.query.filter_by(username=data["username"], expenditure=data["value2"], date=data["value1"]).delete()
+
+        if data['identification2'] == "expense":
+            result = Expenses.query.filter_by(username=data["username"], date=data["value1"], expense=data["value2"]).delete()
+
+    if result:
+        db.session.commit()
+        return jsonify({'message': 'Successfully deleted'}), 200
+    else:
+        return jsonify({'message': 'Could not delete'}), 400
+
+# route for updating the records
+@app.route("/updateExpenses", methods=["GET", "POST"])
+def updateExpense():
+    data = request.json
+
+    if data["identification"] == "expense":
+        if data["changed"] == "expenditure":
+            updated = Expenses.query.filter_by(username=data["username"], expense=data["value"]).update(dict(expenditure=data["changedValue"]))
+        if data["changed"] == "date":
+            updated = Expenses.query.filter_by(username=data["username"], expense=data["value"]).update(dict(date=data["changedValue"]))
+
+    elif data["identification"] == "data":
+        if data["changed"] == "expenditure":
+            updated = Expenses.query.filter_by(username=data["username"], date=data["value"]).update(dict(expenditure=data["changedValue"]))
+        if data["changed"] == "expense":
+            updated = Expenses.query.filter_by(username=data["username"], date=data["value"]).update(dict(expense=data["changedValue"]))
+
+    elif data["identification"] == "expenditure":
+        if data["changed"] == "expenditure":
+            updated = Expenses.query.filter_by(username=data["username"], expenditure=data["value"]).update(dict(expense=data["changedValue"]))
+        if data["changed"] == "date":
+            updated = Expenses.query.filter_by(username=data["username"], expenditure=data["value"]).update(dict(date=data["changedValue"]))
+
+    if updated:
+        db.session.commit()
+        return jsonify({'message': 'Successfully updated'}), 200
+    else:
+        return jsonify({'message': 'Could not be updated'}), 400
+
+# deleting your whole account
+@app.route("/deleteAccount", methods=["GET"])
+def delAccount():
+    data = request.json
+
+    # first deleting all the expenses
+    
+    # if user in expenses then delete the expenses else move on
+    userExpense = Expenses.query.filter_by(username=data['username']).first()
+
+    if userExpense:
+        deleteExpense = Expenses.query.filter_by(username=data["username"]).delete()
+
+        if deleteExpense:
+            db.session.commit()
+
+    else:
+        delUser = User.query.filter_by(username=data["username"]).delete()
+
+        if delUser:
+            db.session.commit()
+            return jsonify({'message': 'Successfully loggedout', 'del':delUser}), 200
+        else:
+            return jsonify({'message': 'Could not delete account', 'del':delUser}), 400
 
 
 @app.route("/")
@@ -102,4 +182,4 @@ def home():
 if __name__ == '__main__':
     # db.drop_all()
     # db.create_all()
-    app.run(debug=True)
+    app.run(host = "0.0.0.0")
