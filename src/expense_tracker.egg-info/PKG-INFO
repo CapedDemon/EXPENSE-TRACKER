@@ -1,24 +1,23 @@
 Metadata-Version: 2.1
 Name: expense-tracker
-Version: 0.0.6
+Version: 2.0
 Summary: Expense Tracker is a very good tool to keep track of your expenseditures and the total money you saved.🤑🤑
-Home-page: https://github.com/Shreejan-35/EXPENSE-TRACKER
+Home-page: https://github.com/CapedDemon/EXPENSE-TRACKER
 Author: Shreejan Dolai
 Author-email: dolaishreejan@gmail.com
-License: UNKNOWN
-Project-URL: Bug Tracker, https://github.com/Shreejan-35/EXPENSE-TRACKER/issues
+Project-URL: Bug Tracker, https://github.com/CapedDemon/EXPENSE-TRACKER/issues
 Keywords: expense,tracker,money,py,expense tracker,expense-tracker,money tracker,money-tracker
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.6
+Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
 #  EXPENSE TRACKER
 <a href="https://github.com/Shreejan-35/Classified"><img src="https://img.shields.io/badge/Language-python-green.svg" alt="Language"></a>
 <a href="https://github.com/Shreejan-35/Classified/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
+[![CodeFactor](https://www.codefactor.io/repository/github/capeddemon/commandconsole/badge)](https://www.codefactor.io/repository/github/capeddemon/commandconsole)
 
 Expense Tracker is a very good tool to keep track of your expenseditures and the total money you saved.🤑🤑
 
@@ -42,6 +41,7 @@ got so old 🗑 that we need to write our expenses in another diary.🖋🖋 It 
 - You can insert new expenses
 - Uses database
 - currency converter
+- Also saves your data online so that you can get access to your expenses from anywhere anytime.
 
 # GETTING STARTED 🤨🧐
 Working with expense tracker is pretty easy, if I don't say also, then also you all will do it.
@@ -58,11 +58,20 @@ Working with expense tracker is pretty easy, if I don't say also, then also you 
 - Press **8** to see your expenses in other currency
 - Press **9** to exit or quit
 
+**Working Remotely**
+- Press **L** to login with a specific username and password
+- Press **R** to register yourself
+- Press **I** to enter the expenses remotely
+- Press **D** to delete your expenses
+- Press **U** to update a particular expense
+- Press **O** to logout
+- Press **DEL** to delete your whole account and all other records
+
 # 😎INSTALLATION ✨🎏
 There are two ways of downloading expense tracker in your computer :-
     - Git clone 
     ```
-    git clone https://github.com/Shreejan-35/EXPENSE-TRACKER.git
+    git clone https://github.com/CapedDemon/EXPENSE-TRACKER.git
     ```
     - Download the zip file 
     - using pip
@@ -100,9 +109,17 @@ That's all.
 Read the instruction carefully on your screen and you will be able to do it.🎉🎉
 
 # CONTRIBUTION
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+
+- Star the repo. 
+- Raise an issue about the feature so that we can assign. 
+- Fork the Project
+- Create your Feature Branch (git checkout -b <Your-username-feature>)
+- Commit your Changes (git commit -m 'Add some advices')
+- Push to the Branch 
+- Open a Pull Request
 
 ## LICENSE
 MIT License
-
-

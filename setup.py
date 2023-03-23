@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="expense-tracker",
-    version="10.0",
+    version="2.0",
     author="Shreejan Dolai",
     author_email="dolaishreejan@gmail.com",
     description="Expense Tracker is a very good tool to keep track of your expenseditures and the total money you saved.🤑🤑",
@@ -22,7 +22,7 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    python_requires=">=3.6",
+    python_requires=">=3.9",
     keywords=['expense', 'tracker',
               'money', 'py', 'expense tracker', 'expense-tracker', 'money tracker', 'money-tracker'],
     install_requires=[

@@ -4,7 +4,10 @@ pyproject.toml
 setup.cfg
 setup.py
 src/expense_tracker/__init__.py
+src/expense_tracker/app.py
 src/expense_tracker/expensetracker.py
+src/expense_tracker/expensetrackerclass.py
+src/expense_tracker/remotefunc.py
 src/expense_tracker.egg-info/PKG-INFO
 src/expense_tracker.egg-info/SOURCES.txt
 src/expense_tracker.egg-info/dependency_links.txt
