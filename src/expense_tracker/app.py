@@ -55,7 +55,7 @@ def login():
         if user:
             return jsonify({'message': 'Access Granted'}), 200
         else:
-            return jsonify({'message': 'Access Denied'})
+            return jsonify({'message': 'Access Denied'}), 400
         
     else:
         return {"message": "The request payload is not in JSON format"}

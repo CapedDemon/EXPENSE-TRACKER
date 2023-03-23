@@ -75,7 +75,7 @@ class RemoteFunc:
 
                     self.loginUsername = userName
                     self.loginPassword = loginPassword
-
+                
                 print(response.json()['message'])
             
             except:
@@ -132,7 +132,7 @@ class RemoteFunc:
                 data = {'username':self.loginUsername}
                 
                 #response
-                response = requests.get(self.url+"showExpenses", data=json.dumps(data), headers=self.headers)
+                response = requests.post(self.url+"showExpenses", data=json.dumps(data), headers=self.headers)
 
                 if response == 404:
                     print("Username not found. An error occured. Please try again")
@@ -184,17 +184,17 @@ class RemoteFunc:
                 valueid1 = input("Enter the value of the identity: ")
 
                 identification2 = input(
-                    "Enter another identity for deleting the record(expense, expenditure, date) [This need to be not same as the previous input given]: ").lower()
+                "Enter another identity for deleting the record(expense, expenditure, date) [This need to be not same as the previous input given]: ").lower()
                 valueid2 = input("Enter the value of the identity: ")
 
-                # identification send as json
+                    # identifications send as json
                 data = {'username':self.loginUsername, 'identification1': identification1, "identification2":identification2, 'value1':valueid1, 'value2':valueid2}
 
-                #response
-                response = requests.get(self.url+"deleteExpenses", data=json.dumps(data), headers=self.headers)
+                    #response
+                response = requests.post(self.url+"deleteExpenses", data=json.dumps(data), headers=self.headers)
 
                 print(response.json()['message'])
-            
+
             except:
                 print("Could not perform the task. Try again later - see for good internet connection")
 
@@ -215,7 +215,7 @@ class RemoteFunc:
                 data = {'username':self.loginUsername, "identification":identification, "value":value, "changed":toChange, "changedValue":valueChanged}
 
                 #response
-                response = requests.get(self.url+"updateExpenses", data=json.dumps(data), headers=self.headers)
+                response = requests.post(self.url+"updateExpenses", data=json.dumps(data), headers=self.headers)
 
                 print(response.json()["message"])
 
@@ -237,7 +237,7 @@ class RemoteFunc:
                     data = {'username':self.loginUsername}
 
                     #response
-                    response = requests.get(self.url+"deleteAccount", data=json.dumps(data), headers=self.headers)
+                    response = requests.post(self.url+"deleteAccount", data=json.dumps(data), headers=self.headers)
 
                     print(response.json()["message"])
                     if (response.status_code == 200):
