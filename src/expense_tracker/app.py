@@ -1,6 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
-import bcrypt
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.db'
@@ -16,7 +15,6 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
-
 # Define a Expenses model with the fields 'expense', 'expenditure', and 'date'
 class Expenses(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -29,9 +27,6 @@ class Expenses(db.Model):
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
-    # takes a post request and json data
-
-    # checks whether user is present or not
     if User.query.filter_by(username=data['username']).first():
         return jsonify({'message': 'User with this username already exists! Try Again'}), 400
 
@@ -46,8 +41,6 @@ def register():
 @app.route("/login", methods=["POST"])
 def login():
     data = request.json
-
-    # checks whether the username and password is present or not
     user = User.query.filter_by(username=data['username'], password=data['password']).first()
 
     if user:
@@ -59,15 +52,9 @@ def login():
 @app.route('/createExpenses', methods=['POST'])
 def createExpenses():
     expensesData = request.get_json()
-
-    # Check that all required fields are present in the request body
     if 'expense' not in expensesData or 'expenditure' not in expensesData or 'date' not in expensesData:
         return jsonify({'error': 'Missing fields'}), 400
-
-    # creating the new field
     newExpense = Expenses(username=expensesData["username"], expense=expensesData["expense"], expenditure=expensesData["expenditure"], date=expensesData["date"])
-
-    # Add the new expense to the database
     db.session.add(newExpense)
     db.session.commit()
 
@@ -77,16 +64,13 @@ def createExpenses():
 @app.route('/showExpenses', methods=['POST','GET'])
 def getExpenses():
     data = request.json
-    # Get all expenses for the user from the expenses table
     expenses = Expenses.query.filter_by(username=data["username"]).all()
     
-    # Create a list of dictionaries containing the expense data
     expenseList = []
     for expense in expenses:
         expenseDict = {'expense': expense.expense, 'expenditure': expense.expenditure, 'date': expense.date}
         expenseList.append(expenseDict)
     
-    # Return the list of expenses in JSON format
     return jsonify({'expenses': expenseList}), 200
 
 # route to delete the expenses
@@ -124,7 +108,6 @@ def delExpenses():
 @app.route("/updateExpenses", methods=["GET", "POST"])
 def updateExpense():
     data = request.json
-
     if data["identification"] == "expense":
         if data["changed"] == "expenditure":
             updated = Expenses.query.filter_by(username=data["username"], expense=data["value"]).update(dict(expenditure=data["changedValue"]))
@@ -153,10 +136,6 @@ def updateExpense():
 @app.route("/deleteAccount", methods=["GET"])
 def delAccount():
     data = request.json
-
-    # first deleting all the expenses
-    
-    # if user in expenses then delete the expenses else move on
     userExpense = Expenses.query.filter_by(username=data['username']).first()
 
     if userExpense:
@@ -177,9 +156,7 @@ def delAccount():
 
 @app.route("/")
 def home():
-    return "this is expense tracker"
+    return render_template("index.html")
 
 if __name__ == '__main__':
-    # db.drop_all()
-    # db.create_all()
     app.run(host = "0.0.0.0")
