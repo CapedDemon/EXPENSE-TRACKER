@@ -1,2 +1,1 @@
-src/expense_tracker/secret.key
-.vercel
+.env/
